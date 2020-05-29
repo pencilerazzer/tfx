@@ -48,9 +48,10 @@ GCS_BUCKET_NAME = GOOGLE_CLOUD_PROJECT + '-kubeflowpipelines-default'
 # GOOGLE_CLOUD_REGION = ''  # ex) 'us-central1'
 
 PREPROCESSING_FN = 'models.preprocessing.preprocessing_fn'
-RUN_FN = 'models.keras.model.run_fn'
-# NOTE: Uncomment below to use an estimator based model.
-# RUN_FN = 'models.estimator.model.run_fn'
+RUN_FN = 'models.estimator.model.run_fn'
+# TODO(b/157692326): Change the default to Keras after b/157692326 is fixed.
+# NOTE: Uncomment below to use an Keras based model.
+# RUN_FN = 'models.keras.model.run_fn'
 
 TRAIN_NUM_STEPS = 100
 EVAL_NUM_STEPS = 100
@@ -95,8 +96,7 @@ _query_sample_rate = 0.0001  # Generate a 0.01% random sample.
 #           company,
 #           trip_seconds,
 #           dropoff_community_area,
-#           tips,
-#           IF(tips > fare * 0.2, 1, 0) AS big_tipper
+#           tips
 #         FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
 #         WHERE (ABS(FARM_FINGERPRINT(unique_key)) / 0x7FFFFFFFFFFFFFFF)
 #           < {query_sample_rate}""".format(

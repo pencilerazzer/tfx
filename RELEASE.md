@@ -1,22 +1,6 @@
 # Current Version(Still in Development)
 
 ## Major Features and Improvements
-
-## Bug fixes and other changes
-
-## Breaking changes
-
-### For pipeline authors
-
-### For component authors
-
-## Documentation updates
-
-## Deprecations
-
-# Version 0.22.0
-
-## Major Features and Improvements
 *   Implemented a TFJS rewriter.
 *   Introduced experimental Python function component decorator (`@component`
     decorator under `tfx.dsl.component.experimental.decorators`) allowing
@@ -38,35 +22,26 @@
 *   Added the container-based sample pipeline (download, filter, print)
 *   Added the scripts/run_component.py script which makes it easy to run the
     component code and executor code. (Similar to scripts/run_executor.py)
-*   Added support for container component execution to BeamDagRunner.
-*   Introduced experimental generic Artifact types for ML workflows.
-*   Added support for `float` execution properties.
-*   Added Tuner component to Iris e2e example.
 
 ## Bug fixes and other changes
+
+*   Depends on `apache-beam[gcp]>=2.21,<3`.
+*   Depends on `grpcio>=2.18.1,<3`.
+*   Depends on `kubernetes>=10.0.1,<12`.
+*   Depends on `pyarrow>=0.16,<0.17`.
 *   Removed `python-snappy` from `[all]` extra dependency list.
 *   Tests depends on `apache-airflow>=1.10.10,<2`;
 *   Removed test dependency to tzlocal.
 *   Fixes unintentional overriding of user-specified setup.py file for Dataflow
     jobs when running on KFP container.
+*   Depends on `frozendict>=1,<2`.
 *   Made ComponentSpec().inputs and .outputs behave more like real dictionaries.
 *   Depends on `kerastuner>=1,<2`.
 *   Depends on `pyyaml>=3.12,<6`.
-*   Depends on `apache-beam[gcp]>=2.21,<3`.
-*   Depends on `grpcio>=2.18.1,<3`.
-*   Depends on `kubernetes>=10.0.1,<12`.
-*   Depends on `tensorflow>=1.15,!=2.0.*,<3`.
-*   Depends on `tensorflow-data-validation>=0.22.0,<0.23.0`.
-*   Depends on `tensorflow-model-analysis>=0.22.1,<0.23.0`.
-*   Depends on `tensorflow-transform>=0.22.0,<0.23.0`.
-*   Depends on `tfx-bsl>=0.22.0,<0.23.0`.
-*   Depends on `ml-metadata>=0.22.0,<0.23.0`.
-*   Fixed a bug in `io_utils.copy_dir` which prevent it to work correctly for
-    nested sub-directories.
+
+### Deprecations
 
 ## Breaking changes
-
-### For pipeline authors
 *   Changed custom config for the Do function of Trainer and Pusher to accept
     a JSON-serialized dict instead of a dict object. This also impacts all the
     Do functions under `tfx.extensions.google_cloud_ai_platform` and
@@ -81,19 +56,16 @@
     argument, even for DirectRunner. Previously this argument was only required
     for DataflowRunner. Note that the specified value of `--temp_location`
     should point to a Google Cloud Storage bucket.
+*   Converted the BaseNode class attributes to the constructor parameters. This
+    won't affect any components derived from BaseComponent.
 *   Revert current per-component cache API (with `enable_cache`, which was only
     available in tfx>=0.21.3,<0.22), in preparing for a future redesign.
 
+### For pipeline authors
+
 ### For component authors
-*   Converted the BaseNode class attributes to the constructor parameters. This
-    won't affect any components derived from BaseComponent.
-*   Changed the encoding of the Integer and Float artifacts to be more portable.
 
 ## Documentation updates
-*   N/A
-
-## Deprecations
-*   Deprecating Py2 support
 
 # Version 0.21.4
 
