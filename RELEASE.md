@@ -22,12 +22,10 @@
 *   Added the container-based sample pipeline (download, filter, print)
 *   Added the scripts/run_component.py script which makes it easy to run the
     component code and executor code. (Similar to scripts/run_executor.py)
-*   Added support for container component execution to BeamDagRunner.
-*   Introduced experimental generic Artifact types for ML workflows.
 
 ## Bug fixes and other changes
 
-*   Depends on `apache-beam[gcp]>=2.21,<3`.
+*   Depends on `apache-beam[gcp]>=2.20,<3`.
 *   Depends on `grpcio>=2.18.1,<3`.
 *   Depends on `kubernetes>=10.0.1,<12`.
 *   Depends on `pyarrow>=0.16,<0.17`.
@@ -39,7 +37,6 @@
 *   Depends on `frozendict>=1,<2`.
 *   Made ComponentSpec().inputs and .outputs behave more like real dictionaries.
 *   Depends on `kerastuner>=1,<2`.
-*   Depends on `pyyaml>=3.12,<6`.
 
 ### Deprecations
 
