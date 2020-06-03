@@ -41,7 +41,6 @@
 *   Added support for container component execution to BeamDagRunner.
 *   Introduced experimental generic Artifact types for ML workflows.
 *   Added support for `float` execution properties.
-*   Added Tuner component to Iris e2e example.
 
 ## Bug fixes and other changes
 *   Removed `python-snappy` from `[all]` extra dependency list.
@@ -61,8 +60,6 @@
 *   Depends on `tensorflow-transform>=0.22.0,<0.23.0`.
 *   Depends on `tfx-bsl>=0.22.0,<0.23.0`.
 *   Depends on `ml-metadata>=0.22.0,<0.23.0`.
-*   Fixed a bug in `io_utils.copy_dir` which prevent it to work correctly for
-    nested sub-directories.
 
 ## Breaking changes
 
@@ -87,7 +84,6 @@
 ### For component authors
 *   Converted the BaseNode class attributes to the constructor parameters. This
     won't affect any components derived from BaseComponent.
-*   Changed the encoding of the Integer and Float artifacts to be more portable.
 
 ## Documentation updates
 *   N/A
