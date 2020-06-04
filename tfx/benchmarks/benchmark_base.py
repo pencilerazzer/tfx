@@ -17,8 +17,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import apache_beam as beam
+from apache_beam.runners.portability import fn_api_runner
 from tensorflow.python.platform import test  # pylint: disable=g-direct-tensorflow-import
 
 
 class BenchmarkBase(test.Benchmark):
-  pass
+
+  def _create_beam_pipeline(self):
+    return beam.Pipeline(runner=fn_api_runner.FnApiRunner())
